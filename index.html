@@ -296,7 +296,7 @@ html, body { height: 100%; font-family: 'Inter', -apple-system, BlinkMacSystemFo
 
   <!-- Main content -->
   <main class="main">
-    <iframe id="mainFrame" class="main-iframe" src="v4.html" title="Tropic Proact Presentation"></iframe>
+    <iframe id="mainFrame" class="main-iframe" src="v5.html" title="Tropic Proact Presentation"></iframe>
   </main>
 
   <button class="show-sidebar-btn" id="showSidebarBtn" title="Show sidebar">☰</button>
@@ -305,9 +305,15 @@ html, body { height: 100%; font-family: 'Inter', -apple-system, BlinkMacSystemFo
 <script>
 const VERSIONS = [
   {
+    id: 'v5',
+    name: 'v5 — Current',
+    meta: 'Apr 17 · Signal Response Guide',
+    file: 'v5.html'
+  },
+  {
     id: 'v4',
-    name: 'v4 — Current',
-    meta: 'Apr 17 · GTM reframed as top 3 priorities',
+    name: 'v4',
+    meta: 'Apr 17 · Top 3 GTM priorities reframe',
     file: 'v4.html'
   },
   {
@@ -336,7 +342,7 @@ const frame = document.getElementById('mainFrame');
 const collapseBtn = document.getElementById('collapseBtn');
 const showBtn = document.getElementById('showSidebarBtn');
 
-let activeId = 'v4';
+let activeId = 'v5';
 
 function render() {
   list.innerHTML = '';
