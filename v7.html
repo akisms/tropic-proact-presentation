@@ -1,0 +1,2272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tropic Proact — Your Proactive Procurement Partner · v7</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+  --purple: #5B2FE0;
+  --purple-deep: #3516A8;
+  --purple-mid: #7551E8;
+  --purple-light: #A78BF0;
+  --purple-pale: #EDE7FE;
+  --purple-tint: #F6F2FF;
+  --lime: #E3F27D;
+  --lime-dark: #C8DB5E;
+  --cream: #FDFBF5;
+  --cream-warm: #F8F3E8;
+  --white: #FFFFFF;
+  --black: #141020;
+  --gray-900: #1F1A2E;
+  --gray-800: #2D2740;
+  --gray-600: #5E5773;
+  --gray-400: #8C849E;
+  --gray-300: #B8B1C7;
+  --gray-200: #D8D3E2;
+  --gray-100: #EFECF5;
+  --gray-50: #F7F5FA;
+  --coral: #E86A5E;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 18px; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+  color: var(--black);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ── Nav ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  height: 62px;
+  padding: 0 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+nav.scrolled {
+  border-bottom-color: rgba(20,16,32,0.06);
+  box-shadow: 0 2px 12px rgba(91,47,224,0.04);
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+.nav-logo-img {
+  height: 22px;
+  width: auto;
+  display: block;
+}
+.nav-links {
+  display: flex;
+  gap: 1.8rem;
+  list-style: none;
+  align-items: center;
+}
+.nav-links a {
+  color: var(--gray-600);
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.nav-links a:hover,
+.nav-links a.active { color: var(--black); }
+
+.present-btn {
+  padding: 0.5rem 1.2rem;
+  background: var(--black);
+  color: var(--white);
+  border: none;
+  border-radius: 100px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  white-space: nowrap;
+  font-family: inherit;
+}
+.present-btn:hover { background: var(--purple); }
+.present-btn:active { transform: scale(0.97); }
+
+/* ── Hero ── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 7rem 3rem 4rem;
+  background:
+    radial-gradient(ellipse 80% 70% at 80% 20%, rgba(167,139,240,0.28) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 60% at 20% 80%, rgba(91,47,224,0.15) 0%, transparent 60%),
+    linear-gradient(135deg, #3516A8 0%, #5B2FE0 55%, #7551E8 100%);
+  position: relative;
+  overflow: hidden;
+  color: var(--white);
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 15% 30%, rgba(255,255,255,0.08) 0%, transparent 8%),
+    radial-gradient(circle at 85% 70%, rgba(227,242,125,0.12) 0%, transparent 10%);
+  pointer-events: none;
+}
+.hero-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--lime);
+  margin-bottom: 1.5rem;
+  padding: 0.35rem 0.9rem;
+  background: rgba(227,242,125,0.12);
+  border: 1px solid rgba(227,242,125,0.25);
+  border-radius: 100px;
+}
+.hero-badge::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--lime);
+  box-shadow: 0 0 10px var(--lime);
+}
+.hero h1 {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(2.6rem, 5.2vw, 4.4rem);
+  font-weight: 700;
+  line-height: 1.04;
+  color: var(--white);
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.035em;
+}
+.hero h1 em {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--lime);
+  letter-spacing: -0.01em;
+}
+.hero-sub {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.72);
+  line-height: 1.65;
+  margin-bottom: 2.25rem;
+  max-width: 520px;
+}
+.hero-author {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  max-width: 420px;
+}
+.hero-headshot {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  border: 3px solid rgba(227,242,125,0.45);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+.hero-author-text { display: flex; flex-direction: column; gap: 0.2rem; }
+.hero-author-name { font-size: 1.05rem; font-weight: 600; color: var(--white); }
+.hero-author-meta { font-size: 0.82rem; color: rgba(255,255,255,0.6); }
+
+/* Hero card visual */
+.hero-visual { position: relative; height: 420px; }
+.hero-card {
+  position: absolute;
+  background: var(--white);
+  border-radius: 14px;
+  box-shadow: 0 20px 60px rgba(20,16,32,0.3), 0 4px 16px rgba(20,16,32,0.15);
+  padding: 1.25rem 1.4rem;
+  color: var(--black);
+}
+.hero-card.card-1 { top: 0; right: 0; width: 260px; }
+.hero-card.card-2 { bottom: 40px; left: 0; width: 240px; }
+.hero-card.card-3 { top: 140px; right: 60px; width: 220px; background: var(--lime); }
+.hero-card-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  margin-bottom: 0.5rem;
+}
+.hero-card-title { font-size: 0.9rem; font-weight: 600; color: var(--black); margin-bottom: 0.6rem; line-height: 1.3; }
+.hero-card-value {
+  font-family: 'Instrument Serif', serif;
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: var(--purple);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.hero-card.card-3 .hero-card-value { color: var(--purple-deep); }
+.hero-card-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.78rem;
+  padding: 0.25rem 0;
+}
+.hero-card-row + .hero-card-row { border-top: 1px solid var(--gray-100); }
+.hero-card-row-label { color: var(--gray-600); }
+.hero-card-row-val { font-weight: 600; color: var(--black); }
+.hero-card-badge {
+  display: inline-block;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--purple);
+  background: var(--purple-pale);
+  padding: 0.2rem 0.55rem;
+  border-radius: 100px;
+  margin-top: 0.6rem;
+}
+
+/* ── Shared section styles ── */
+section { padding: 6rem 3rem; }
+.container { max-width: 1200px; margin: 0 auto; }
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--purple);
+  margin-bottom: 1.25rem;
+}
+.section-label::before { content: ''; width: 22px; height: 1.5px; background: var(--purple); }
+.section-title {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(2rem, 3.6vw, 3rem);
+  font-weight: 700;
+  color: var(--black);
+  line-height: 1.08;
+  margin-bottom: 1rem;
+  letter-spacing: -0.03em;
+}
+.section-title em {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--purple);
+  letter-spacing: -0.01em;
+}
+.section-subtitle {
+  font-size: 1.05rem;
+  color: var(--gray-600);
+  max-width: 680px;
+  line-height: 1.65;
+  margin-bottom: 3rem;
+}
+
+/* ── TOC ── */
+.toc { background: var(--cream); padding: 5rem 3rem; }
+.toc-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem 3rem;
+  border-top: 2px solid var(--black);
+  padding-top: 2rem;
+}
+.toc-item {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.95rem 0;
+  border-bottom: 1px solid rgba(20,16,32,0.08);
+}
+.toc-item-number {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-size: 1.4rem;
+  color: var(--purple);
+  min-width: 2rem;
+}
+.toc-item a {
+  font-size: 0.98rem;
+  color: var(--gray-800);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.toc-item a:hover { color: var(--purple); }
+
+/* ── Context (formerly internal) ── */
+.context-note {
+  background: var(--purple-tint);
+  border: 1px solid rgba(91,47,224,0.1);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  font-size: 0.9rem;
+  color: var(--gray-800);
+  line-height: 1.55;
+  margin-bottom: 2.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+}
+.context-note-icon {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--purple);
+  color: var(--lime);
+  font-weight: 700;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ── AI Disclosure ── */
+.disclosure { background: var(--white); }
+.disclosure-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+.disclosure-col {
+  background: var(--cream);
+  border-radius: 14px;
+  padding: 2rem 2rem;
+  border: 1px solid rgba(20,16,32,0.05);
+}
+.disclosure-col.ai-col {
+  background: var(--purple-tint);
+  border-color: rgba(91,47,224,0.1);
+}
+.disclosure-col h3 {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--black);
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.disclosure-col.ai-col h3 { color: var(--purple); }
+.disclosure-col h3::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--black); }
+.disclosure-col.ai-col h3::before { background: var(--purple); }
+.disclosure-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; }
+.disclosure-col li { font-size: 0.92rem; color: var(--gray-600); line-height: 1.55; padding-left: 1.25rem; position: relative; }
+.disclosure-col li::before { content: '—'; position: absolute; left: 0; color: var(--gray-300); }
+
+/* ── Assumptions ── */
+.assumptions { background: var(--cream); }
+.assumption-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+.assumption-card {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 1.75rem 1.75rem;
+  border: 1px solid rgba(20,16,32,0.06);
+  display: flex;
+  gap: 1rem;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.assumption-card:hover { border-color: var(--purple-light); transform: translateY(-2px); }
+.assumption-number {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-size: 1.6rem;
+  color: var(--purple);
+  line-height: 1;
+  min-width: 2rem;
+  flex-shrink: 0;
+}
+.assumption-text { font-size: 0.95rem; color: var(--gray-800); line-height: 1.55; }
+.assumption-text strong { color: var(--black); font-weight: 600; }
+
+/* ── Introducing / Positioning box ── */
+.introducing { background: var(--white); }
+.intro-box {
+  background: linear-gradient(135deg, #3516A8 0%, #5B2FE0 100%);
+  padding: 4rem 4rem;
+  border-radius: 20px;
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(91,47,224,0.22);
+}
+.intro-box::before {
+  content: '';
+  position: absolute;
+  top: -40px; right: -40px;
+  width: 220px; height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(227,242,125,0.18) 0%, transparent 70%);
+}
+.intro-box-label {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--lime);
+  margin-bottom: 1.5rem;
+}
+.intro-box-text {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1.4rem, 2.2vw, 1.8rem);
+  font-weight: 500;
+  line-height: 1.42;
+  letter-spacing: -0.015em;
+  position: relative;
+  z-index: 1;
+}
+.intro-box-text strong { font-weight: 600; color: var(--lime); }
+
+/* ── Messaging Architecture ── */
+.architecture { background: var(--cream); }
+.arch-rationale {
+  background: var(--white);
+  padding: 1.75rem 2rem;
+  margin-bottom: 2rem;
+  border-left: 3px solid var(--purple);
+  border-radius: 0 10px 10px 0;
+  box-shadow: 0 2px 8px rgba(20,16,32,0.04);
+}
+.arch-rationale-intro { font-size: 0.95rem; color: var(--black); margin-bottom: 0.85rem; font-weight: 500; }
+.arch-rationale-intro strong { color: var(--purple); }
+.arch-rationale ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+.arch-rationale li { font-size: 0.88rem; color: var(--gray-600); line-height: 1.55; padding-left: 1.25rem; position: relative; }
+.arch-rationale li::before { content: ''; position: absolute; left: 0.15rem; top: 0.55em; width: 6px; height: 6px; border-radius: 50%; background: var(--purple); }
+
+.anchor-ladder {
+  background: var(--white);
+  border-radius: 14px;
+  border: 1px solid rgba(20,16,32,0.06);
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+.anchor-row {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  border-bottom: 1px solid rgba(20,16,32,0.06);
+}
+.anchor-row:last-child { border-bottom: none; }
+.anchor-label {
+  background: var(--purple-pale);
+  padding: 0.85rem 1.1rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--purple-deep);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-right: 1px solid rgba(91,47,224,0.1);
+}
+.anchor-label-tag {
+  font-size: 0.65rem;
+  font-weight: 700;
+  background: var(--purple);
+  color: var(--white);
+  padding: 0.12rem 0.4rem;
+  border-radius: 4px;
+  letter-spacing: 0.05em;
+}
+.anchor-value { padding: 0.85rem 1.1rem; font-size: 0.92rem; color: var(--gray-800); line-height: 1.5; display: flex; align-items: center; }
+.anchor-row.problem-row .anchor-label { background: #FEE9EC; color: #9B2C3A; border-right-color: rgba(155,44,58,0.1); }
+.anchor-row.problem-row .anchor-label-tag { background: var(--coral); }
+
+.pillar-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto auto auto auto;
+  gap: 1.25rem;
+}
+.pillar-card {
+  background: var(--white);
+  border-radius: 14px;
+  padding: 1.75rem 1.75rem 1.5rem;
+  border: 1px solid rgba(20,16,32,0.06);
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 5;
+  row-gap: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+.pillar-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; }
+.pillar-card:nth-child(1)::before { background: var(--purple); }
+.pillar-card:nth-child(2)::before { background: var(--lime-dark); }
+.pillar-card:nth-child(3)::before { background: var(--coral); }
+.pillar-num { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 1.6rem; color: var(--purple); line-height: 1; }
+.pillar-card:nth-child(2) .pillar-num { color: var(--lime-dark); }
+.pillar-card:nth-child(3) .pillar-num { color: var(--coral); }
+.pillar-block { padding-top: 0.75rem; border-top: 1px dashed rgba(20,16,32,0.08); }
+.pillar-block:first-of-type { border-top: none; padding-top: 0; }
+.pillar-block-label { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray-400); margin-bottom: 0.5rem; }
+.pillar-block-text { font-size: 0.88rem; color: var(--gray-800); line-height: 1.5; font-weight: 500; }
+.pillar-block.problem .pillar-block-text { color: var(--black); font-weight: 600; }
+.pillar-block.benefit .pillar-block-text { color: var(--purple-deep); }
+.pillar-block.features .pillar-block-text { font-size: 0.82rem; color: var(--gray-600); font-weight: 400; }
+
+/* ── Headline slide ── */
+.headline-slide { background: var(--white); }
+.headline-mockup {
+  background: linear-gradient(135deg, #2B0E88 0%, #4B1FC8 50%, #7551E8 100%);
+  border-radius: 20px;
+  padding: 0;
+  overflow: hidden;
+  box-shadow: 0 30px 70px rgba(91,47,224,0.28);
+  position: relative;
+}
+.mockup-browser-bar {
+  background: rgba(0,0,0,0.25);
+  padding: 0.7rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.mockup-dot { width: 11px; height: 11px; border-radius: 50%; background: rgba(255,255,255,0.2); }
+.mockup-dot:nth-child(1) { background: #FF5F57; }
+.mockup-dot:nth-child(2) { background: #FEBC2E; }
+.mockup-dot:nth-child(3) { background: #28C841; }
+.mockup-url { margin-left: 0.75rem; font-size: 0.72rem; color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.08); padding: 0.25rem 0.85rem; border-radius: 100px; }
+.mockup-hero {
+  padding: 5rem 3.5rem 4.5rem;
+  text-align: center;
+  color: var(--white);
+  position: relative;
+}
+.mockup-hero::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 60%;
+  background: radial-gradient(ellipse at center bottom, rgba(227,242,125,0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+.mockup-eyebrow {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--lime);
+  background: rgba(227,242,125,0.12);
+  border: 1px solid rgba(227,242,125,0.25);
+  padding: 0.35rem 0.9rem;
+  border-radius: 100px;
+  margin-bottom: 1.5rem;
+}
+.mockup-h1 {
+  font-size: clamp(2.2rem, 4.2vw, 3.4rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  margin-bottom: 1.25rem;
+  max-width: 880px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.mockup-h1 em { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; color: var(--lime); }
+.mockup-sub { font-size: 1.1rem; color: rgba(255,255,255,0.75); line-height: 1.6; max-width: 680px; margin: 0 auto 2rem; position: relative; z-index: 1; }
+.mockup-ctas { display: flex; gap: 0.75rem; justify-content: center; position: relative; z-index: 1; align-items: flex-start; flex-direction: column; }
+.mockup-ctas-row { display: flex; gap: 0.75rem; justify-content: center; width: 100%; }
+.mockup-ctas-meta {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  width: 100%;
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.5);
+  margin-top: 0.75rem;
+}
+.mockup-ctas-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.mockup-ctas-meta .gated-pill {
+  background: rgba(227,242,125,0.15);
+  color: var(--lime);
+  padding: 0.15rem 0.55rem;
+  border-radius: 100px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+.mockup-ctas-meta .ungated-pill {
+  background: rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.75);
+  padding: 0.15rem 0.55rem;
+  border-radius: 100px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+.mockup-btn {
+  padding: 0.8rem 1.75rem;
+  border-radius: 100px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+}
+.mockup-btn.primary { background: var(--lime); color: var(--purple-deep); }
+.mockup-btn.secondary { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.3); }
+
+.headline-breakdown { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2rem; }
+.headline-breakdown-card {
+  background: var(--cream);
+  padding: 1.25rem 1.5rem;
+  border-radius: 10px;
+  border: 1px solid rgba(20,16,32,0.05);
+}
+.headline-breakdown-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--purple);
+  margin-bottom: 0.5rem;
+}
+.headline-breakdown-text { font-size: 0.88rem; color: var(--gray-800); line-height: 1.5; }
+
+/* ── GTM ── */
+.gtm { background: var(--cream); }
+.tier-badge-row { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 2rem; flex-wrap: wrap; }
+.tier-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--black);
+  color: var(--lime);
+  padding: 0.45rem 1rem;
+  border-radius: 100px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+.tier-badge-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--lime); box-shadow: 0 0 8px var(--lime); }
+.tier-badge-note { font-size: 0.88rem; color: var(--gray-600); }
+
+.gtm-timeline { position: relative; margin-top: 2rem; }
+.gtm-phase {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 1.75rem 2rem;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(20,16,32,0.06);
+  position: relative;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 2rem;
+}
+.gtm-phase-header { border-right: 1px solid rgba(20,16,32,0.06); padding-right: 1.5rem; }
+.gtm-phase-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.7rem;
+  border-radius: 100px;
+  margin-bottom: 0.85rem;
+}
+.gtm-phase.we .gtm-phase-chip { background: var(--purple-pale); color: var(--purple-deep); }
+.gtm-phase.employees .gtm-phase-chip { background: #FFF5D9; color: #8A6D12; }
+.gtm-phase.customers .gtm-phase-chip { background: #E7F8E4; color: #2A6B20; }
+.gtm-phase-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--black);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-bottom: 0.25rem;
+}
+.gtm-phase-voice {
+  font-size: 0.82rem;
+  color: var(--gray-600);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+.gtm-phase-weeks { font-size: 0.78rem; color: var(--gray-400); font-weight: 500; letter-spacing: 0.04em; }
+
+.gtm-tactics { display: flex; flex-direction: column; gap: 1rem; }
+.gtm-tactic { display: grid; grid-template-columns: 180px 1fr; gap: 1.25rem; padding: 0.85rem 0; border-bottom: 1px dashed rgba(20,16,32,0.08); }
+.gtm-tactic:last-child { border-bottom: none; padding-bottom: 0; }
+.gtm-tactic-name { font-size: 0.92rem; font-weight: 600; color: var(--black); display: flex; align-items: center; gap: 0.55rem; }
+.gtm-tactic-name::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--purple); flex-shrink: 0; }
+.gtm-phase.employees .gtm-tactic-name::before { background: #D8B138; }
+.gtm-phase.customers .gtm-tactic-name::before { background: #4CAF50; }
+.gtm-tactic-rationale { font-size: 0.88rem; color: var(--gray-600); line-height: 1.55; }
+
+/* ── Enablement ── */
+.enablement { background: var(--white); }
+.enablement-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
+.enablement-card {
+  background: var(--cream);
+  border-radius: 16px;
+  padding: 2rem 2rem;
+  border: 1px solid rgba(20,16,32,0.06);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.enablement-card.sales { background: linear-gradient(135deg, #3516A8 0%, #5B2FE0 100%); color: var(--white); }
+.enablement-card.cs { background: linear-gradient(135deg, #1F5A3F 0%, #2E8A5F 100%); color: var(--white); }
+
+.enablement-card-header { display: flex; align-items: center; gap: 0.85rem; margin-bottom: 1rem; }
+.enablement-icon {
+  width: 44px; height: 44px;
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  flex-shrink: 0;
+}
+.enablement-card.sales .enablement-icon { background: var(--lime); color: var(--purple-deep); }
+.enablement-card.cs .enablement-icon { background: var(--lime); color: #1F5A3F; }
+.enablement-audience {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 0.2rem;
+}
+.enablement-asset { font-size: 1.35rem; font-weight: 700; color: var(--white); letter-spacing: -0.02em; line-height: 1.15; }
+.enablement-body { font-size: 0.92rem; color: rgba(255,255,255,0.82); line-height: 1.6; margin-bottom: 1rem; }
+.enablement-body strong { color: var(--lime); font-weight: 600; }
+
+.enablement-why {
+  padding: 0.9rem 1rem;
+  background: rgba(0,0,0,0.25);
+  border-radius: 8px;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.82);
+  line-height: 1.5;
+  margin-bottom: 0.85rem;
+}
+.enablement-why strong {
+  text-transform: uppercase;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  color: var(--lime);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+.enablement-contingency {
+  padding: 0.9rem 1rem;
+  background: rgba(0,0,0,0.18);
+  border-radius: 8px;
+  font-size: 0.83rem;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.5;
+}
+.enablement-contingency strong {
+  text-transform: uppercase;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.5);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+.enablement-contingency em { font-style: normal; color: rgba(255,255,255,0.9); font-weight: 500; }
+
+.enablement-footnote {
+  margin-top: auto;
+  padding-top: 0.9rem;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.5;
+}
+.enablement-footnote strong {
+  color: rgba(227,242,125,0.9);
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.bonus-card {
+  background: linear-gradient(135deg, var(--lime) 0%, var(--lime-dark) 100%);
+  padding: 1.5rem 2rem;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+.bonus-chip {
+  background: var(--purple-deep);
+  color: var(--lime);
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 0.3rem 0.7rem;
+  border-radius: 100px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.bonus-text { font-size: 0.95rem; color: var(--purple-deep); line-height: 1.5; font-weight: 500; }
+.bonus-text strong { font-weight: 700; }
+
+/* ── Appendix ── */
+.appendix-intro { background: var(--black); color: var(--white); padding: 4rem 3rem; }
+.appendix-intro .container { display: flex; justify-content: space-between; align-items: baseline; gap: 2rem; }
+.appendix-intro-title {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-size: 3.5rem;
+  line-height: 1;
+  color: var(--lime);
+  letter-spacing: -0.02em;
+}
+.appendix-intro-sub { font-size: 0.95rem; color: rgba(255,255,255,0.6); max-width: 420px; line-height: 1.5; }
+
+/* ── Canvas (compact for single page) ── */
+.canvas-slide { background: var(--cream); padding: 4rem 2rem; }
+.canvas-slide .container { max-width: 1400px; }
+.canvas-slide .section-title { font-size: 1.6rem; margin-bottom: 0.35rem; }
+.canvas-slide .section-label { margin-bottom: 0.6rem; }
+.canvas-slide .section-subtitle { font-size: 0.88rem; margin-bottom: 1.25rem; }
+
+.canvas-wrap {
+  background: var(--black);
+  border-radius: 14px;
+  padding: 1.25rem 1.25rem;
+  overflow: hidden;
+}
+.canvas-intro {
+  background: var(--white);
+  padding: 0.85rem 1.1rem;
+  border-radius: 6px;
+  margin-bottom: 0.9rem;
+  font-size: 0.74rem;
+  color: var(--gray-800);
+  line-height: 1.45;
+}
+.canvas-intro p + p { margin-top: 0.35rem; }
+.canvas-intro strong { color: var(--purple); }
+
+.canvas-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 3px;
+  font-size: 0.7rem;
+}
+.canvas-table td, .canvas-table th {
+  padding: 0;
+  vertical-align: top;
+  line-height: 1.35;
+  border-radius: 4px;
+}
+.canvas-table .row-label {
+  font-weight: 700;
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  width: 115px;
+  white-space: nowrap;
+  color: var(--white);
+  padding: 0.55rem 0.6rem;
+  vertical-align: top;
+}
+.canvas-table .row-label.company, .canvas-table .row-label.persona { background: #F5E88A; color: #6B5418; }
+.canvas-table .row-label.usecase, .canvas-table .row-label.alt { background: #D6E8F8; color: #1F4F7A; }
+.canvas-table .row-label.cat { background: #E8D6F8; color: #5A1F7A; }
+.canvas-table .row-label.problem, .canvas-table .row-label.sub { background: #F5A5A5; color: #7A1F1F; }
+.canvas-table .row-label.diff, .canvas-table .row-label.cap { background: #F5C894; color: #7A4A1F; }
+.canvas-table .row-label.feat { background: #A5E5A5; color: #1F5A1F; }
+.canvas-table .row-label.ben { background: #A5D8F5; color: #1F4A7A; }
+.canvas-table .row-label.sum { background: #A5E5A5; color: #1F5A1F; }
+
+/* Single-cell row */
+.canvas-table .cell {
+  background: var(--white);
+  color: var(--gray-800);
+  font-size: 0.7rem;
+  padding: 0.55rem 0.7rem;
+}
+.canvas-table .summary-cell {
+  background: #2B0E88;
+  color: var(--white);
+  font-size: 0.72rem;
+  line-height: 1.4;
+  padding: 0.6rem 0.8rem;
+}
+
+/* 3-column cell: clean CSS grid with clear dividers and top-aligned text.
+   align-items: stretch makes each .col fill the full row height, so the
+   vertical divider runs edge-to-edge regardless of which column has more text. */
+.canvas-table .cell-3col {
+  background: var(--white);
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+  align-items: stretch;
+}
+.canvas-table .cell-3col > .col {
+  padding: 0.55rem 0.85rem;
+  font-size: 0.7rem;
+  line-height: 1.4;
+  color: var(--gray-800);
+  border-left: 2px solid rgba(20,16,32,0.22);
+  vertical-align: top;
+}
+.canvas-table .cell-3col > .col:first-child { border-left: none; }
+.canvas-table .cell-3col > .col strong { color: var(--black); font-weight: 600; }
+
+/* Lists inside cells */
+.canvas-table ul { list-style: none; padding-left: 0; margin: 0; }
+.canvas-table li {
+  padding-left: 0.7rem;
+  position: relative;
+  margin-bottom: 0.2rem;
+  font-size: 0.66rem;
+  line-height: 1.4;
+}
+.canvas-table li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--purple);
+  font-weight: 700;
+}
+.canvas-table li:last-child { margin-bottom: 0; }
+
+/* ── Tiering framework (richer) ── */
+.tiering-slide { background: var(--white); }
+.tier-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(20,16,32,0.06);
+  border: 1px solid rgba(20,16,32,0.08);
+}
+.tier-table thead th {
+  background: var(--black);
+  color: var(--lime);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.85rem 1.25rem;
+  text-align: left;
+  border-right: 1px solid rgba(255,255,255,0.1);
+}
+.tier-table thead th:last-child { border-right: none; }
+
+.tier-table tbody tr { border-bottom: 1px solid rgba(20,16,32,0.06); }
+.tier-table tbody tr:last-child { border-bottom: none; }
+.tier-table tbody td {
+  padding: 1.25rem 1.25rem;
+  font-size: 0.88rem;
+  color: var(--gray-800);
+  line-height: 1.5;
+  border-right: 1px solid rgba(20,16,32,0.06);
+  vertical-align: top;
+}
+.tier-table tbody td:last-child { border-right: none; }
+
+.tier-table tr.tier-1-row { background: var(--purple-tint); }
+.tier-table tr.tier-2-row { background: var(--white); }
+.tier-table tr.tier-3-row { background: var(--cream); }
+
+.tier-cell-num {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--purple);
+  margin-bottom: 0.3rem;
+}
+.tier-1-row .tier-cell-num { color: var(--purple-deep); }
+.tier-2-row .tier-cell-num { color: var(--purple); }
+.tier-3-row .tier-cell-num { color: var(--gray-400); }
+
+.tier-cell-name {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+}
+.tier-1-row .tier-cell-name { color: var(--purple-deep); }
+.tier-lives-chip {
+  display: inline-block;
+  font-size: 0.62rem;
+  font-weight: 700;
+  padding: 0.2rem 0.5rem;
+  border-radius: 100px;
+  background: var(--lime);
+  color: var(--purple-deep);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 0.3rem;
+}
+.tier-table strong { color: var(--black); font-weight: 600; }
+.tier-table em { font-style: italic; color: var(--gray-600); }
+
+/* ── Signal Response Guide (Appendix A3) ── */
+.signal-guide-slide { background: var(--cream); }
+
+.signal-doc {
+  background: var(--white);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(20,16,32,0.06);
+  border: 1px solid rgba(20,16,32,0.06);
+}
+
+.signal-doc-header {
+  background: linear-gradient(135deg, #3516A8 0%, #5B2FE0 100%);
+  color: var(--white);
+  padding: 1.4rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+.signal-doc-header::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 200px; height: 100%;
+  background: radial-gradient(ellipse at right center, rgba(227,242,125,0.15) 0%, transparent 60%);
+}
+.signal-doc-brand {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--lime);
+  position: relative;
+  z-index: 1;
+}
+.signal-doc-title {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-size: 1.6rem;
+  color: var(--white);
+  letter-spacing: -0.01em;
+  position: relative;
+  z-index: 1;
+}
+.signal-doc-meta {
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  white-space: nowrap;
+  position: relative;
+  z-index: 1;
+}
+
+.signal-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+.signal-card {
+  padding: 1.5rem 1.75rem;
+  border-right: 1px solid rgba(20,16,32,0.06);
+  border-top: 1px solid rgba(20,16,32,0.06);
+  position: relative;
+}
+.signal-card:nth-child(even) { border-right: none; }
+.signal-card:nth-child(-n+2) { border-top: none; }
+
+.signal-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px;
+  height: 100%;
+}
+.signal-card.renewal::before { background: var(--purple); }
+.signal-card.consolidation::before { background: var(--lime-dark); }
+.signal-card.pricing::before { background: var(--coral); }
+.signal-card.alternative::before { background: #4C8BE0; }
+
+.signal-card-header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 0.85rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px dashed rgba(20,16,32,0.1);
+  flex-wrap: wrap;
+}
+.signal-icon {
+  width: 30px; height: 30px;
+  border-radius: 8px;
+  background: var(--purple-pale);
+  color: var(--purple);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.signal-card.consolidation .signal-icon { background: #EEF5D8; color: #6B7A20; }
+.signal-card.pricing .signal-icon { background: #FCE4E1; color: #9B3A32; }
+.signal-card.alternative .signal-icon { background: #DCE8F9; color: #2C5AA0; }
+
+.signal-type {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--black);
+  letter-spacing: -0.015em;
+}
+.signal-timing {
+  font-size: 0.68rem;
+  color: var(--gray-400);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-left: auto;
+}
+
+.signal-section { margin-bottom: 0.85rem; }
+.signal-section:last-child { margin-bottom: 0; }
+
+.signal-label {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--purple);
+  margin-bottom: 0.3rem;
+}
+.signal-card.consolidation .signal-label { color: #6B7A20; }
+.signal-card.pricing .signal-label { color: #9B3A32; }
+.signal-card.alternative .signal-label { color: #2C5AA0; }
+
+.signal-section p {
+  font-size: 0.83rem;
+  color: var(--gray-800);
+  line-height: 1.5;
+  margin: 0;
+}
+.signal-section ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+.signal-section li {
+  font-size: 0.8rem;
+  color: var(--gray-800);
+  line-height: 1.5;
+  padding-left: 1rem;
+  position: relative;
+  margin-bottom: 0.2rem;
+}
+.signal-section li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--purple);
+  font-weight: 700;
+}
+.signal-card.consolidation .signal-section li::before { color: var(--lime-dark); }
+.signal-card.pricing .signal-section li::before { color: var(--coral); }
+.signal-card.alternative .signal-section li::before { color: #4C8BE0; }
+
+.signal-doc-footer {
+  background: var(--cream);
+  border-top: 1px solid rgba(20,16,32,0.06);
+  padding: 0.85rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.7rem;
+  color: var(--gray-400);
+  letter-spacing: 0.05em;
+}
+.signal-doc-footer strong { color: var(--purple); font-weight: 600; }
+
+/* Present-mode tweaks for signal guide */
+html.present-mode .signal-guide-slide { padding-top: 4.5rem; padding-bottom: 2rem; }
+html.present-mode .signal-doc-header { padding: 0.9rem 1.5rem; }
+html.present-mode .signal-doc-title { font-size: 1.2rem; }
+html.present-mode .signal-card { padding: 0.9rem 1.2rem; }
+html.present-mode .signal-card-header { margin-bottom: 0.55rem; padding-bottom: 0.5rem; }
+html.present-mode .signal-type { font-size: 0.9rem; }
+html.present-mode .signal-section { margin-bottom: 0.55rem; }
+html.present-mode .signal-section p { font-size: 0.75rem; }
+html.present-mode .signal-section li { font-size: 0.74rem; }
+
+/* ── Thank you ── */
+.thankyou {
+  background: linear-gradient(135deg, #1F0C5C 0%, #3516A8 55%, #5B2FE0 100%);
+  color: var(--white);
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 3rem;
+  position: relative;
+  overflow: hidden;
+}
+.thankyou::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at top right, rgba(227,242,125,0.1) 0%, transparent 50%);
+}
+.thankyou-inner { text-align: center; position: relative; z-index: 1; max-width: 640px; }
+.thankyou h2 {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 400;
+  color: var(--lime);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin-bottom: 1.25rem;
+}
+.thankyou p { font-size: 1.1rem; color: rgba(255,255,255,0.75); line-height: 1.65; margin-bottom: 2rem; }
+
+footer {
+  background: var(--black);
+  color: rgba(255,255,255,0.55);
+  padding: 2rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+}
+footer a { color: rgba(255,255,255,0.75); text-decoration: none; }
+footer a:hover { color: var(--lime); }
+
+/* ── Fade-up animation ── */
+.fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+.fade-up.d1 { transition-delay: 0.08s; }
+.fade-up.d2 { transition-delay: 0.16s; }
+.fade-up.d3 { transition-delay: 0.24s; }
+
+/* ── Present Mode ── */
+html.present-mode { scroll-behavior: auto; }
+html.present-mode body { overflow-x: hidden; }
+html.present-mode nav { border-bottom-color: transparent; box-shadow: none !important; }
+html.present-mode section,
+html.present-mode .hero,
+html.present-mode .appendix-intro,
+html.present-mode .thankyou {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 6rem;
+  padding-bottom: 4rem;
+}
+html.present-mode .hero { min-height: 100vh; }
+html.present-mode section > .container,
+html.present-mode .appendix-intro > .container { width: 100%; }
+html.present-mode .fade-up { opacity: 1 !important; transform: none !important; }
+html.present-mode .nav-links a { opacity: 0.35; transition: opacity 0.2s, color 0.2s, background 0.2s; }
+html.present-mode .nav-links a.active {
+  opacity: 1;
+  color: var(--purple-deep);
+  font-weight: 700;
+  background: var(--lime);
+  padding: 0.3rem 0.85rem;
+  border-radius: 100px;
+}
+html.present-mode .present-btn { background: var(--purple-pale); color: var(--purple); }
+
+html.present-mode .canvas-slide { padding-top: 4.5rem; padding-bottom: 2rem; }
+html.present-mode .canvas-wrap { padding: 0.85rem 0.85rem; }
+html.present-mode .canvas-intro { padding: 0.6rem 0.85rem; font-size: 0.68rem; margin-bottom: 0.65rem; }
+html.present-mode .canvas-table .row-label { padding: 0.35rem 0.55rem; font-size: 0.58rem; width: 95px; }
+html.present-mode .canvas-table .cell { padding: 0.35rem 0.6rem; font-size: 0.64rem; }
+html.present-mode .canvas-table .summary-cell { padding: 0.4rem 0.65rem; font-size: 0.66rem; }
+html.present-mode .canvas-table .cell-3col > .col { padding: 0.35rem 0.6rem; font-size: 0.64rem; }
+html.present-mode .canvas-table li { font-size: 0.6rem; }
+
+/* Present-mode compression for Messaging Architecture slide */
+html.present-mode .architecture { padding-top: 4.5rem; padding-bottom: 2rem; }
+html.present-mode .architecture .section-label { margin-bottom: 0.4rem; }
+html.present-mode .architecture .section-title { font-size: clamp(1.5rem, 2.6vw, 2rem); margin-bottom: 0.3rem; }
+html.present-mode .architecture .section-subtitle { margin-bottom: 0.85rem; font-size: 0.88rem; }
+html.present-mode .appendix-callout { margin-bottom: 1rem !important; font-size: 0.72rem !important; padding: 0.3rem 0.75rem !important; }
+
+html.present-mode .arch-rationale { padding: 0.75rem 1.1rem; margin-bottom: 0.85rem; }
+html.present-mode .arch-rationale-intro { font-size: 0.82rem; margin-bottom: 0.4rem; }
+html.present-mode .arch-rationale ul { gap: 0.25rem; }
+html.present-mode .arch-rationale li { font-size: 0.75rem; line-height: 1.45; }
+
+html.present-mode .anchor-ladder { margin-bottom: 0.85rem; }
+html.present-mode .anchor-row { grid-template-columns: 170px 1fr; }
+html.present-mode .anchor-label { padding: 0.55rem 0.85rem; font-size: 0.72rem; }
+html.present-mode .anchor-value { padding: 0.55rem 0.85rem; font-size: 0.82rem; line-height: 1.4; }
+
+html.present-mode .pillar-grid { gap: 0.7rem; }
+html.present-mode .pillar-card { padding: 0.85rem 1rem 0.8rem; row-gap: 0.4rem; }
+html.present-mode .pillar-num { font-size: 1.1rem; }
+html.present-mode .pillar-block { padding-top: 0.35rem; }
+html.present-mode .pillar-block-label { font-size: 0.54rem; margin-bottom: 0.25rem; }
+html.present-mode .pillar-block-text { font-size: 0.72rem; line-height: 1.38; }
+html.present-mode .pillar-block.features .pillar-block-text { font-size: 0.7rem; }
+
+.slide-indicator {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  background: rgba(20,16,32,0.85);
+  backdrop-filter: blur(8px);
+  color: rgba(255,255,255,0.85);
+  padding: 0.5rem 1rem;
+  border-radius: 100px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  z-index: 200;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+html.present-mode .slide-indicator { opacity: 1; }
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-visual { display: none; }
+  .pillar-grid { grid-template-columns: 1fr; }
+  .gtm-phase { grid-template-columns: 1fr; }
+  .gtm-phase-header { border-right: none; border-bottom: 1px solid rgba(20,16,32,0.06); padding-right: 0; padding-bottom: 1rem; }
+  .enablement-grid { grid-template-columns: 1fr; }
+  .assumption-grid { grid-template-columns: 1fr; }
+  .disclosure-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  nav { padding: 0 1.5rem; }
+  .nav-links { display: none; }
+  .present-btn { display: none; }
+  section { padding: 4rem 1.5rem; }
+  .hero { padding: 6rem 1.5rem 3rem; }
+  .anchor-row { grid-template-columns: 1fr; }
+  .headline-breakdown { grid-template-columns: 1fr; }
+  .mockup-hero { padding: 3rem 1.5rem; }
+  .toc-list { grid-template-columns: 1fr; }
+  .appendix-intro .container { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+  .gtm-tactic { grid-template-columns: 1fr; gap: 0.4rem; }
+  .tier-table { font-size: 0.78rem; }
+  .signal-grid { grid-template-columns: 1fr; }
+  .signal-card { border-right: none !important; }
+  .signal-card:nth-child(2) { border-top: 1px solid rgba(20,16,32,0.06) !important; }
+  .signal-doc-header { flex-direction: column; align-items: flex-start; gap: 0.3rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav id="nav">
+  <a href="#hero" class="nav-logo">
+    <img src="tropic-logo.svg" alt="tropic" class="nav-logo-img">
+  </a>
+  <ul class="nav-links">
+    <li><a href="#disclosure">Disclosure</a></li>
+    <li><a href="#assumptions">Assumptions</a></li>
+    <li><a href="#introducing">Intro</a></li>
+    <li><a href="#architecture">Messaging</a></li>
+    <li><a href="#headline">Headline</a></li>
+    <li><a href="#gtm">GTM</a></li>
+    <li><a href="#enablement">Enablement</a></li>
+  </ul>
+  <button class="present-btn" id="presentBtn" onclick="togglePresent()">Present</button>
+</nav>
+
+<!-- Slide 1: Hero / Cover -->
+<section class="hero" id="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <span class="hero-badge">Product Marketing · Take-Home</span>
+      <h1>Tropic Proact<br>Your <em>proactive</em><br>procurement partner.</h1>
+      <p class="hero-sub">Launching a feature that turns software spend from a reactive scramble into a proactive savings engine — powered by $18B in spend data.</p>
+      <div class="hero-author">
+        <img src="ayman-headshot.jpeg" alt="Ayman Kotob" class="hero-headshot">
+        <div class="hero-author-text">
+          <span class="hero-author-name">Ayman Kotob</span>
+          <span class="hero-author-meta">April 20, 2026</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card card-1">
+        <div class="hero-card-label">Renewal Alert</div>
+        <div class="hero-card-title">Salesforce — opt-out in 12 days</div>
+        <div class="hero-card-row"><span class="hero-card-row-label">Benchmark</span><span class="hero-card-row-val">-18%</span></div>
+        <div class="hero-card-row"><span class="hero-card-row-label">Action</span><span class="hero-card-row-val">Renegotiate</span></div>
+        <span class="hero-card-badge">Proact signal</span>
+      </div>
+      <div class="hero-card card-2">
+        <div class="hero-card-label">Savings Found</div>
+        <div class="hero-card-value">$858K</div>
+        <div class="hero-card-row"><span class="hero-card-row-label">Across 24 vendors</span></div>
+      </div>
+      <div class="hero-card card-3">
+        <div class="hero-card-label">Consolidation</div>
+        <div class="hero-card-title">3 overlapping tools flagged</div>
+        <span class="hero-card-badge" style="background:var(--purple-deep);color:var(--lime);">Review now</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Table of Contents -->
+<section class="toc">
+  <div class="container">
+    <div class="section-label fade-up">Contents</div>
+    <h2 class="section-title fade-up">What's <em>inside</em></h2>
+    <p class="section-subtitle fade-up">Some quick context on how this presentation was built, and then the story we'll take to market.</p>
+    <ol class="toc-list fade-up d1" style="list-style:none;">
+      <li class="toc-item"><span class="toc-item-number">i.</span><a href="#disclosure">AI Disclosure</a></li>
+      <li class="toc-item"><span class="toc-item-number">ii.</span><a href="#assumptions">Assumptions</a></li>
+      <li class="toc-item"><span class="toc-item-number">01.</span><a href="#introducing">Introducing Tropic Proact</a></li>
+      <li class="toc-item"><span class="toc-item-number">02.</span><a href="#architecture">Messaging Architecture</a></li>
+      <li class="toc-item"><span class="toc-item-number">03.</span><a href="#headline">Mocked-Up Headline</a></li>
+      <li class="toc-item"><span class="toc-item-number">04.</span><a href="#gtm">Go-to-Market</a></li>
+      <li class="toc-item"><span class="toc-item-number">05.</span><a href="#enablement">Enablement</a></li>
+      <li class="toc-item"><span class="toc-item-number">06.</span><a href="#canvas">Appendix</a></li>
+    </ol>
+  </div>
+</section>
+
+<!-- Slide 2: AI Disclosure -->
+<section class="disclosure" id="disclosure">
+  <div class="container">
+    <div class="section-label fade-up">Before we start</div>
+    <h2 class="section-title fade-up">AI <em>disclosure</em></h2>
+    <p class="section-subtitle fade-up">This project was built with AI. Here's a quick breakdown on how we divided R&amp;Rs.</p>
+    <div class="disclosure-grid fade-up d1">
+      <div class="disclosure-col">
+        <h3>Ayman</h3>
+        <ul>
+          <li>Performed initial exploratory research on the procurement landscape, including competitors</li>
+          <li>Reviewed the Tropic website to understand current offerings</li>
+          <li>Generated the narrative flow of this document</li>
+          <li>Reviewed AI outputs</li>
+        </ul>
+      </div>
+      <div class="disclosure-col ai-col">
+        <h3>AI Tools (Claude, Claude Code)</h3>
+        <ul>
+          <li>Reviewed drafts to identify opportunities for improvement</li>
+          <li>Built out slides based on content Ayman developed</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Slide 3: Assumptions -->
+<section class="assumptions" id="assumptions">
+  <div class="container">
+    <div class="section-label fade-up">Before we start</div>
+    <h2 class="section-title fade-up">Foundational <em>assumptions</em>.</h2>
+    <p class="section-subtitle fade-up">A few assumptions shape the rest of this deck. Calling them out up front so the recommendations can be judged against them.</p>
+    <div class="assumption-grid fade-up d1">
+      <div class="assumption-card">
+        <span class="assumption-number">01</span>
+        <span class="assumption-text">This is a <strong>Tier 1 launch</strong> (see appendix for tiering framework).</span>
+      </div>
+      <div class="assumption-card">
+        <span class="assumption-number">02</span>
+        <span class="assumption-text">We have <strong>access to a standard GTM toolkit</strong> (website CMS, email platform, interactive demo tool, etc.).</span>
+      </div>
+      <div class="assumption-card">
+        <span class="assumption-number">03</span>
+        <span class="assumption-text">The feature is named <strong>Tropic Proact</strong>.</span>
+      </div>
+      <div class="assumption-card">
+        <span class="assumption-number">04</span>
+        <span class="assumption-text">GTM is preceded by a <strong>full customer beta</strong> with 2–3 customers who've used it during critical software purchases or renewals.</span>
+      </div>
+      <div class="assumption-card">
+        <span class="assumption-number">05</span>
+        <span class="assumption-text">"<strong>Mid-market</strong>" = SaaS-reliant companies with <strong>200–2,000 employees</strong>, typically managing <strong>100+ SaaS vendors</strong>.</span>
+      </div>
+      <div class="assumption-card">
+        <span class="assumption-number">06</span>
+        <span class="assumption-text">This is scoped as a <strong>feature</strong>, not an agent or agentic capability. We're likely heading into a world where agents wrap around a lot of features, but that's beyond the scope here.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Slide 4: Introducing Tropic Proact -->
+<section class="introducing" id="introducing">
+  <div class="container">
+    <div class="section-label fade-up">Introducing</div>
+    <h2 class="section-title fade-up">Introducing <em>Tropic Proact</em>.</h2>
+    <p class="section-subtitle fade-up">One sentence to anchor every downstream asset.</p>
+    <div class="intro-box fade-up d1">
+      <div class="intro-box-label">One-line summary</div>
+      <p class="intro-box-text">Tropic Proact is a <strong>procurement intelligence tool</strong> that helps procurement leaders at mid-market companies <strong>proactively identify and act on cost-saving opportunities</strong> across their software stack — powered by the <strong>Tropic Network, $18B of proprietary software spend data</strong>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Slide 5: Messaging Architecture -->
+<section class="architecture" id="architecture">
+  <div class="container">
+    <div class="section-label fade-up">Messaging Architecture</div>
+    <h2 class="section-title fade-up">How the <em>story</em> ladders up.</h2>
+    <p class="section-subtitle fade-up">Framework courtesy of <strong style="color:var(--purple)">FletchPMM</strong>. A ladder structure from problem → capability → feature → benefit.</p>
+
+    <a href="#canvas" class="appendix-callout fade-up" style="display:inline-flex; align-items:center; gap:0.5rem; font-size:0.78rem; font-weight:600; color:var(--purple); background:var(--purple-pale); padding:0.4rem 0.9rem; border-radius:100px; margin-bottom:2rem; text-decoration:none; border:1px solid rgba(91,47,224,0.15);"><span style="font-size:0.9rem;">→</span> Full positioning &amp; messaging canvas in the appendix</a>
+
+    <div class="arch-rationale fade-up d1">
+      <div class="arch-rationale-intro"><strong>Why this framework:</strong></div>
+      <ul>
+        <li>Uses different "anchors" to develop a holistic view of how the product fits in</li>
+        <li>A "ladder" structure creates a clear throughline between problems, capabilities, features, and benefits</li>
+        <li>Keeps everything on one page for ease of use</li>
+      </ul>
+    </div>
+
+    <div class="anchor-ladder fade-up d2">
+      <div class="anchor-row">
+        <div class="anchor-label">Who it's for</div>
+        <div class="anchor-value">Procurement leaders at software-reliant mid-market companies</div>
+      </div>
+      <div class="anchor-row problem-row">
+        <div class="anchor-label">Their challenge</div>
+        <div class="anchor-value">Procurement teams are caught in a cycle of reacting to renewals, scrambling hours of labor-intensive tasks into frenzied sprints, and struggling to identify contracts with real savings opportunities</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-label">What it lets them do</div>
+        <div class="anchor-value">Proactively optimize software spend through smarter negotiations, consolidation, and vendor decisions</div>
+      </div>
+    </div>
+
+    <div class="pillar-grid fade-up d3">
+      <div class="pillar-card">
+        <span class="pillar-num">01</span>
+        <div class="pillar-block problem">
+          <div class="pillar-block-label">Sub-problem</div>
+          <div class="pillar-block-text">Procurement teams are reactive to software purchases.</div>
+        </div>
+        <div class="pillar-block">
+          <div class="pillar-block-label">Capability</div>
+          <div class="pillar-block-text">Robust set of real-time signals flagging opportunities for software purchase, consolidation, and negotiation.</div>
+        </div>
+        <div class="pillar-block features">
+          <div class="pillar-block-label">Features</div>
+          <div class="pillar-block-text">Proactive renewal alerts · Automated contract triage · Vendor pricing shifts</div>
+        </div>
+        <div class="pillar-block benefit">
+          <div class="pillar-block-label">Benefit</div>
+          <div class="pillar-block-text">Reduced unplanned spend, increased proactive renegotiation opportunities, and a leaner tech stack through consolidation.</div>
+        </div>
+      </div>
+      <div class="pillar-card">
+        <span class="pillar-num">02</span>
+        <div class="pillar-block problem">
+          <div class="pillar-block-label">Sub-problem</div>
+          <div class="pillar-block-text">Procurement teams spend too much time on manual tasks.</div>
+        </div>
+        <div class="pillar-block">
+          <div class="pillar-block-label">Capability</div>
+          <div class="pillar-block-text">A suite of automated and AI capabilities that orchestrate key procurement activities.</div>
+        </div>
+        <div class="pillar-block features">
+          <div class="pillar-block-label">Features</div>
+          <div class="pillar-block-text">Streamlined intake · Centralized approval · Purpose-built AI agents</div>
+        </div>
+        <div class="pillar-block benefit">
+          <div class="pillar-block-label">Benefit</div>
+          <div class="pillar-block-text">Less time preparing for renewals, more team capacity for strategic work, more satisfied team members.</div>
+        </div>
+      </div>
+      <div class="pillar-card">
+        <span class="pillar-num">03</span>
+        <div class="pillar-block problem">
+          <div class="pillar-block-label">Sub-problem</div>
+          <div class="pillar-block-text">Procurement teams lack the spend intelligence needed to build effective software purchasing strategies.</div>
+        </div>
+        <div class="pillar-block">
+          <div class="pillar-block-label">Capability</div>
+          <div class="pillar-block-text">$18BN of proprietary spend data that powers both Proact's automated signals <em>and</em> self-serve benchmarks — customers can query pricing on any vendor in under 60 seconds, whether Proact flagged it or their team went looking.</div>
+        </div>
+        <div class="pillar-block features">
+          <div class="pillar-block-label">Features</div>
+          <div class="pillar-block-text">Pricing Benchmarks · Vendor negotiation playbooks · Software alternatives</div>
+        </div>
+        <div class="pillar-block benefit">
+          <div class="pillar-block-label">Benefit</div>
+          <div class="pillar-block-text">Data-backed confidence for any vendor conversation — Proact-surfaced or self-initiated. Procurement moves from a support function to a proactive intelligence partner.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Slide 6: Mocked-Up Headline -->
+<section class="headline-slide" id="headline">
+  <div class="container">
+    <div class="section-label fade-up">Headline</div>
+    <h2 class="section-title fade-up">The homepage <em>moment</em>.</h2>
+    <p class="section-subtitle fade-up">Feature description rewritten into the landing-page headline and subheadline website traffic would actually see.</p>
+
+    <div class="headline-mockup fade-up d1">
+      <div class="mockup-browser-bar">
+        <div class="mockup-dot"></div>
+        <div class="mockup-dot"></div>
+        <div class="mockup-dot"></div>
+        <div class="mockup-url">tropicapp.io</div>
+      </div>
+      <div class="mockup-hero">
+        <span class="mockup-eyebrow">✦ Introducing Tropic Proact</span>
+        <h3 class="mockup-h1">Stop <em>reacting</em> to renewals.<br>Start driving savings.</h3>
+        <p class="mockup-sub">Tropic Proact is your procurement intelligence partner that helps you optimize software spend and save hours through smarter negotiations, consolidation, and renegotiation — powered by the Tropic Network, $18B of proprietary spend data.</p>
+        <div class="mockup-ctas">
+          <div class="mockup-ctas-row">
+            <button class="mockup-btn primary">Get a Demo →</button>
+            <button class="mockup-btn secondary">Watch 2-Min Tour</button>
+          </div>
+          <div class="mockup-ctas-meta">
+            <span><span class="gated-pill">Gated</span> Capture-ready</span>
+            <span><span class="ungated-pill">Ungated</span> Self-serve, no form</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="headline-breakdown fade-up d2">
+      <div class="headline-breakdown-card">
+        <div class="headline-breakdown-label">The headline</div>
+        <div class="headline-breakdown-text">Names the shift — reactive → proactive — and promises the outcome buyers care about most: savings.</div>
+      </div>
+      <div class="headline-breakdown-card">
+        <div class="headline-breakdown-label">The subhead</div>
+        <div class="headline-breakdown-text">Grounds the claim in Tropic's real moat — the <strong>Tropic Network</strong>, <strong>$18B of proprietary spend data</strong> — and frames Proact as how the Network comes to you, not the other way around.</div>
+      </div>
+      <div class="headline-breakdown-card">
+        <div class="headline-breakdown-label">The CTAs</div>
+        <div class="headline-breakdown-text">Gated demo for high-intent prospects; an <strong>ungated</strong> 2-min tour lets the skeptical self-serve without trading an email first.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Slide 7: GTM -->
+<section class="gtm" id="gtm">
+  <div class="container">
+    <div class="section-label fade-up">Go-to-Market</div>
+    <h2 class="section-title fade-up">Our top 3 <em>GTM priorities</em>.</h2>
+    <p class="section-subtitle fade-up">Tier 1 launches need volume and credibility. We sequence our 3 priorities by <strong>who does the talking</strong> — we own the narrative, employees amplify it, customers humanize it.</p>
+
+    <div class="tier-badge-row fade-up d1">
+      <span class="tier-badge"><span class="tier-badge-dot"></span>Tier 1 Launch</span>
+      <span class="tier-badge-note">New functionality, both current and new customers, high revenue potential.</span>
+    </div>
+
+    <div class="gtm-timeline fade-up d2">
+
+      <div class="gtm-phase we">
+        <div class="gtm-phase-header">
+          <span class="gtm-phase-chip">Priority 1 · Own the narrative</span>
+          <div class="gtm-phase-title">We're talking</div>
+          <div class="gtm-phase-voice">Voice of Tropic</div>
+          <div class="gtm-phase-weeks">Weeks 1–2</div>
+        </div>
+        <div class="gtm-tactics">
+          <div class="gtm-tactic">
+            <div class="gtm-tactic-name">Landing page</div>
+            <div class="gtm-tactic-rationale">Our most important owned surface — the largest canvas we have to tell the story.</div>
+          </div>
+          <div class="gtm-tactic">
+            <div class="gtm-tactic-name">Blog announcement</div>
+            <div class="gtm-tactic-rationale">The redirect target for every other channel. Goes into greater depth on what Proact does and why it exists.</div>
+          </div>
+          <div class="gtm-tactic">
+            <div class="gtm-tactic-name">Email series</div>
+            <div class="gtm-tactic-rationale">Meets prospects and customers in their inbox. Doubles as a reactivation path for dormant leads.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gtm-phase employees">
+        <div class="gtm-phase-header">
+          <span class="gtm-phase-chip">Priority 2 · Amplify the narrative</span>
+          <div class="gtm-phase-title">Employees talk</div>
+          <div class="gtm-phase-voice">Voice of Tropic's people</div>
+          <div class="gtm-phase-weeks">Weeks 1–4 (overlapping)</div>
+        </div>
+        <div class="gtm-tactics">
+          <div class="gtm-tactic">
+            <div class="gtm-tactic-name">Employee content on LinkedIn</div>
+            <div class="gtm-tactic-rationale">AI has made authentic, human content more valuable than ever. Done well, it creates a LinkedIn "takeover effect" that makes Proact hard to avoid — and signals thought leadership.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gtm-phase customers">
+        <div class="gtm-phase-header">
+          <span class="gtm-phase-chip">Priority 3 · Humanize the narrative</span>
+          <div class="gtm-phase-title">Customers talk</div>
+          <div class="gtm-phase-voice">Voice of the customer</div>
+          <div class="gtm-phase-weeks">Weeks 3–5</div>
+        </div>
+        <div class="gtm-tactics">
+          <div class="gtm-tactic">
+            <div class="gtm-tactic-name">Customer stories</div>
+            <div class="gtm-tactic-rationale">Nothing speaks to the power of a feature like tangible impact seen by real customers.</div>
+          </div>
+          <div class="gtm-tactic">
+            <div class="gtm-tactic-name">Customer webinar</div>
+            <div class="gtm-tactic-rationale">Brings the feature to life, lets customers discuss specifics of the use case, and lets the market ask live questions.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Slide 8: Enablement -->
+<section class="enablement" id="enablement">
+  <div class="container">
+    <div class="section-label fade-up">Enablement</div>
+    <h2 class="section-title fade-up">Two audiences. <em>Two purpose-built assets.</em></h2>
+    <p class="section-subtitle fade-up">Prospects need to be convinced; customers need to see their own data. That's two different jobs — so two different assets.</p>
+
+    <div class="enablement-grid fade-up d1">
+
+      <div class="enablement-card sales">
+        <div class="enablement-card-header">
+          <div class="enablement-icon">SALES</div>
+          <div>
+            <div class="enablement-audience">For Sales · Prospects</div>
+            <div class="enablement-asset">Interactive Product Demo</div>
+          </div>
+        </div>
+        <p class="enablement-body">A <strong>click-through demo</strong> (Arcade, Navattic, Storylane) showing Proact on a representative dataset — embedded on the landing page, used in discovery, linked from outbound. Prospects don't have data in Tropic yet, so they need the <em>aha</em> fast; self-serve beats scheduling a call.</p>
+        <div class="enablement-footnote">
+          <strong>Fallback</strong> · Pitch deck + 2-min Loom walkthrough if no interactive demo tool. Weaker (no "play with it" moment), but consistent.
+        </div>
+      </div>
+
+      <div class="enablement-card cs">
+        <div class="enablement-card-header">
+          <div class="enablement-icon">CS</div>
+          <div>
+            <div class="enablement-audience">For AM / CS · Customers</div>
+            <div class="enablement-asset">Signal Response Guide</div>
+          </div>
+        </div>
+        <p class="enablement-body">A <strong>reference doc organized by signal type</strong>. For each Proact signal — renewal alerts, consolidation flags, pricing shifts, alternatives — the guide explains what it means, Proact's recommendation, and how to execute. Teaches a <em>decision framework</em> per signal, reinforcing Proact's proactive rhythm. <a href="#signal-guide" style="color:var(--lime); text-decoration:underline; text-underline-offset:2px;">See the asset →</a></p>
+        <div class="enablement-footnote">
+          <strong>Fallback</strong> · One-pager per signal type, shipped incrementally as each goes live.
+        </div>
+      </div>
+
+    </div>
+
+    <div class="bonus-card fade-up d2">
+      <span class="bonus-chip">Bonus</span>
+      <p class="bonus-text"><strong>An AI chatbot trained on foundational PMM materials</strong> about Proact — messaging, copy guidelines, objection handling. Self-serve answers for the whole org, available anytime.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Appendix Intro -->
+<div class="appendix-intro">
+  <div class="container">
+    <div>
+      <div class="section-label" style="color:rgba(255,255,255,0.6);">Appendix</div>
+      <div class="appendix-intro-title">Appendix</div>
+    </div>
+    <div class="appendix-intro-sub">Full positioning/messaging canvas and the tiering framework referenced throughout the deck.</div>
+  </div>
+</div>
+
+<!-- Appendix 1: Full Canvas (compact for single page) -->
+<section class="canvas-slide" id="canvas">
+  <div class="container">
+    <div class="section-label fade-up">Appendix · A1</div>
+    <h2 class="section-title fade-up">Full positioning &amp; <em>messaging canvas</em></h2>
+    <p class="section-subtitle fade-up">The complete canvas — source-of-truth for every downstream asset.</p>
+
+    <div class="canvas-wrap fade-up d1">
+      <div class="canvas-intro">
+        <p><strong>One-sentence summary:</strong> Tropic Proact is a procurement intelligence tool that helps procurement leaders at mid-market companies proactively identify and act on cost-saving opportunities across their software stack, powered by $18B in spend data.</p>
+        <p><strong>Elevator pitch:</strong> Tropic Proact helps procurement teams at software-reliant mid-market companies negotiate the most advantageous software deals, proactively. Teams caught in a cycle of reacting to renewals, scrambling labor-intensive tasks into frenzied sprints, and struggling to identify contracts with real savings opportunities now leverage real-time signals, purpose-built AI and automation, and $18BN of proprietary spend data — transforming procurement from an important supporting function into a proactive software intelligence partner.</p>
+      </div>
+
+      <table class="canvas-table">
+        <tr>
+          <td class="row-label company">Company Anchor</td>
+          <td class="cell">Software-reliant mid-market companies</td>
+        </tr>
+        <tr>
+          <td class="row-label persona">Persona Anchor</td>
+          <td class="cell">Procurement leaders</td>
+        </tr>
+        <tr>
+          <td class="row-label usecase">Use-Case Anchor</td>
+          <td class="cell">Proactively optimize software spend through smarter negotiations, consolidation, and decisions</td>
+        </tr>
+        <tr>
+          <td class="row-label alt">Alternative Anchor</td>
+          <td class="cell">Reactive manual processes · Human-mediated buying services (<strong>Vendr</strong>, <strong>Sastrify</strong>) — slower cycle time · SaaS management tools (<strong>Zylo</strong>, <strong>Productiv</strong>) — surface usage, not savings action · Generic off-the-shelf AI without a proprietary spend corpus</td>
+        </tr>
+        <tr>
+          <td class="row-label cat">Category Anchor</td>
+          <td class="cell">Procurement intelligence</td>
+        </tr>
+        <tr>
+          <td class="row-label problem">Problem Summary</td>
+          <td class="cell">Procurement teams are caught in a cycle of reacting to renewals, scrambling hours of labor-intensive tasks into frenzied sprints, and struggling to identify contracts with real savings opportunities</td>
+        </tr>
+        <tr>
+          <td class="row-label sub">Sub-Problems</td>
+          <td class="cell-3col">
+            <div class="col">Reactive to software purchases</div>
+            <div class="col">Too much time on manual tasks</div>
+            <div class="col">Lack spend intelligence needed to build effective purchasing strategies</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="row-label diff">Differentiation Pillars</td>
+          <td class="cell-3col">
+            <div class="col"><strong>Proactive</strong> — initiate conversations at the time of opportunity</div>
+            <div class="col"><strong>Highest-leverage tasks</strong> — focus team time where it matters</div>
+            <div class="col"><strong>Armed with data</strong> — insights that drive effective negotiation outcomes</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="row-label cap">Capabilities</td>
+          <td class="cell-3col">
+            <div class="col">Real-time signals flagging opportunities for purchase, consolidation, and negotiation</div>
+            <div class="col">Automated + AI capabilities that orchestrate key procurement activities</div>
+            <div class="col">$18BN of proprietary spend data across industries and vendors</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="row-label feat">Features</td>
+          <td class="cell-3col">
+            <div class="col">
+              <ul>
+                <li>Proactive renewal alerts with recommendations before opt-out</li>
+                <li>Automated contract triage (negotiate vs. auto-renew)</li>
+                <li>Vendor pricing shifts</li>
+              </ul>
+            </div>
+            <div class="col">
+              <ul>
+                <li>Streamlined intake</li>
+                <li>Centralized approval</li>
+                <li>Automatic pulse surveys</li>
+                <li>Purpose-built AI agents for procurement</li>
+              </ul>
+            </div>
+            <div class="col">
+              <ul>
+                <li>Tropic network: largest proprietary spend corpus</li>
+                <li>Pricing benchmarks</li>
+                <li>Vendor-specific negotiation playbooks</li>
+                <li>Software alternatives</li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="row-label ben">Benefits</td>
+          <td class="cell-3col">
+            <div class="col">
+              <ul>
+                <li>[X%] less unplanned spend by catching auto-renewals before opt-out</li>
+                <li>Identify renegotiation opportunities months before renewal, not days</li>
+                <li>Consolidate tools into a leaner tech stack</li>
+              </ul>
+            </div>
+            <div class="col">
+              <ul>
+                <li>[X%] less time on renewal/negotiation prep</li>
+                <li>[Y%] more capacity for strategic work</li>
+                <li>Higher team satisfaction as repetitive tasks are eliminated</li>
+              </ul>
+            </div>
+            <div class="col">
+              <ul>
+                <li>[X%] savings on software backed by benchmark data</li>
+                <li>[Y%] productivity lift through faster, more confident decisions</li>
+                <li>[Z%] report increased confidence in negotiation outcomes</li>
+                <li>Procurement recognized as the source of vendor &amp; spend intelligence</li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="row-label sum">Differentiation Summary</td>
+          <td class="summary-cell">Tropic Proact helps procurement teams leverage real-time signals, purpose-built AI and automation, and $18BN of proprietary spend data to negotiate the best software contracts and renewals — transforming procurement from an important supporting function into a proactive software intelligence partner.</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- Appendix 2: Tiering Framework (richer table) -->
+<section class="tiering-slide" id="tiering">
+  <div class="container">
+    <div class="section-label fade-up">Appendix · A2</div>
+    <h2 class="section-title fade-up">Tiering <em>framework</em></h2>
+    <p class="section-subtitle fade-up">How we decide the level of investment behind a launch. Three things determine the tier: <strong>newness</strong>, <strong>audience reach</strong>, and <strong>revenue potential</strong> — each mapped to a concrete investment level.</p>
+
+    <table class="tier-table fade-up d1">
+      <thead>
+        <tr>
+          <th style="width:120px;">Tier</th>
+          <th style="width:25%;">What it is</th>
+          <th style="width:25%;">Audience</th>
+          <th style="width:30%;">Investment level</th>
+          <th>Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="tier-1-row">
+          <td>
+            <div class="tier-cell-num">01</div>
+            <div class="tier-cell-name">Tier 1</div>
+            <span class="tier-lives-chip">Proact lives here</span>
+          </td>
+          <td><strong>New or significantly improved functionality.</strong></td>
+          <td>Both prospects and current customers — drives <strong>acquisition + activation</strong>.</td>
+          <td>Full GTM motion: landing page, blog, email, PR, employee advocacy, customer stories, webinar, full enablement kit.</td>
+          <td><em>Tropic Proact — a new product surface area with high revenue potential.</em></td>
+        </tr>
+        <tr class="tier-2-row">
+          <td>
+            <div class="tier-cell-num">02</div>
+            <div class="tier-cell-name">Tier 2</div>
+          </td>
+          <td>New or significantly improved functionality.</td>
+          <td>Primarily <strong>current customers</strong> — drives activation of existing accounts.</td>
+          <td>Product release notes, in-app announcement, CSM enablement moment, single outbound email.</td>
+          <td><em>A new dashboard view or expanded integration surface.</em></td>
+        </tr>
+        <tr class="tier-3-row">
+          <td>
+            <div class="tier-cell-num">03</div>
+            <div class="tier-cell-name">Tier 3</div>
+          </td>
+          <td>Minor changes or bug fixes.</td>
+          <td>Existing customers only (as needed).</td>
+          <td>Changelog entry. No GTM investment.</td>
+          <td><em>UI polish, performance fix, minor setting additions.</em></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- Appendix A3: Signal Response Guide (the actual asset) -->
+<section class="signal-guide-slide" id="signal-guide">
+  <div class="container">
+    <div class="section-label fade-up">Appendix · A3</div>
+    <h2 class="section-title fade-up">Signal Response <em>Guide</em></h2>
+    <p class="section-subtitle fade-up">The actual CS/AM asset — a reference doc organized by signal type, so customers know what to do when Proact fires. One page per signal; same structure every time.</p>
+
+    <div class="signal-doc fade-up d1">
+
+      <div class="signal-doc-header">
+        <div>
+          <div class="signal-doc-brand">tropic · proact</div>
+          <div class="signal-doc-title">Signal Response Guide</div>
+        </div>
+        <div class="signal-doc-meta">Reference · Customer-facing</div>
+      </div>
+
+      <div class="signal-grid">
+
+        <div class="signal-card renewal">
+          <div class="signal-card-header">
+            <span class="signal-icon">R</span>
+            <span class="signal-type">Renewal Alert</span>
+            <span class="signal-timing">Fires 90 days out</span>
+          </div>
+          <div class="signal-section">
+            <div class="signal-label">What it means</div>
+            <p>A vendor contract is approaching auto-renewal and the opt-out window is closing.</p>
+          </div>
+          <div class="signal-section">
+            <div class="signal-label">Proact's recommendation</div>
+            <p>Renegotiate using Tropic Network benchmarks — or opt out if a better alternative exists.</p>
+          </div>
+          <div class="signal-section">
+            <div class="signal-label">How to execute</div>
+            <ul>
+              <li>Open the vendor's negotiation playbook (included in the signal)</li>
+              <li>Review the benchmark delta (your price vs. Tropic Network median)</li>
+              <li>Prep stakeholder questions &amp; approval path</li>
+              <li>Open the conversation with your rep before the opt-out deadline</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="signal-card consolidation">
+          <div class="signal-card-header">
+            <span class="signal-icon">C</span>
+            <span class="signal-type">Consolidation Flag</span>
+            <span class="signal-timing">Fires on overlap detection</span>
+          </div>
+          <div class="signal-section">
+            <div class="signal-label">What it means</div>
+            <p>Two or more tools with overlapping functionality have been detected in your stack.</p>
+          </div>
+          <div class="signal-section">
+            <div class="signal-label">Proact's recommendation</div>
+            <p>Evaluate consolidating to a single vendor; Proact estimates annualized savings against current spend.</p>
+          </div>
+          <div class="signal-section">
+            <div class="signal-label">How to execute</div>
+            <ul>
+              <li>Review the overlap analysis (features, teams, usage)</li>
+              <li>Check stakeholder usage data before flagging for cut</li>
+              <li>Run a short-list evaluation on the tools you're keeping</li>
+              <li>Plan migration + change management with affected teams</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="signal-card pricing">
+          <div class="signal-card-header">
+            <span class="signal-icon">P</span>
+            <span class="signal-type">Pricing Shift</span>
+            <span class="signal-timing">Fires on market move</span>
+          </div>
+          <div class="signal-section">
+            <div class="signal-label">What it means</div>
+            <p>Market pricing for this vendor has moved — you may be paying above (or below) the current benchmark.</p>
+          </div>
+          <div class="signal-section">
+            <div class="signal-label">Proact's recommendation</div>
+            <p>Open a mid-contract renegotiation if you're above benchmark; lock in a longer term if you're below.</p>
+          </div>
+          <div class="signal-section">
+            <div class="signal-label">How to execute</div>
+            <ul>
+              <li>Review the benchmark delta (% above/below market)</li>
+              <li>Identify negotiation levers (usage, term length, bundling)</li>
+              <li>Request a pricing review with your account rep</li>
+              <li>Document the outcome for the next renewal cycle</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="signal-card alternative">
+          <div class="signal-card-header">
+            <span class="signal-icon">A</span>
+            <span class="signal-type">Alternative Surfaced</span>
+            <span class="signal-timing">Fires on match found</span>
+          </div>
+          <div class="signal-section">
+            <div class="signal-label">What it means</div>
+            <p>A lower-cost vendor has emerged that matches your use case within the Tropic Network.</p>
+          </div>
+          <div class="signal-section">
+            <div class="signal-label">Proact's recommendation</div>
+            <p>Evaluate switch cost vs. annual savings; consider a pilot if projected savings exceed 25%.</p>
+          </div>
+          <div class="signal-section">
+            <div class="signal-label">How to execute</div>
+            <ul>
+              <li>Review the alternative vendor scorecard</li>
+              <li>Calculate total TCO (switch cost + migration + training)</li>
+              <li>Pilot with a subset of users before committing</li>
+              <li>Decide: switch, negotiate with incumbent using the alt as leverage, or stay</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="signal-doc-footer">
+        <span>Powered by the <strong>Tropic Network</strong> — $18B of proprietary spend data</span>
+        <span>v1.0 · Proact Launch</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Thank you -->
+<section class="thankyou">
+  <div class="thankyou-inner">
+    <h2>Thank you.</h2>
+    <p>I appreciate you taking the time to review. Excited to dig into any of this live — from messaging trade-offs to the GTM sequencing.</p>
+    <div class="hero-author" style="justify-content:center; border-top-color:rgba(255,255,255,0.15); max-width:none;">
+      <img src="ayman-headshot.jpeg" alt="Ayman Kotob" class="hero-headshot">
+      <div class="hero-author-text" style="text-align:left;">
+        <span class="hero-author-name">Ayman Kotob</span>
+        <a class="hero-author-meta" href="https://www.linkedin.com/in/aymankotob" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.75); text-decoration:none; border-bottom:1px solid rgba(227,242,125,0.4);">www.linkedin.com/in/aymankotob</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>© 2026 · Ayman Kotob · Prepared for Tropic · <strong style="color:var(--lime)">v7</strong></div>
+  <div>Press <strong style="color:var(--lime)">P</strong> to enter presentation mode · <strong style="color:var(--lime)">←/→</strong> to navigate · <strong style="color:var(--lime)">Esc</strong> to exit</div>
+</footer>
+
+<div class="slide-indicator" id="slideIndicator">1 / 12</div>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 20);
+});
+
+function getSnapTargets() {
+  return Array.from(document.querySelectorAll('.hero, section, .appendix-intro, .thankyou'));
+}
+function getCurrentSlideIndex() {
+  const targets = getSnapTargets();
+  let best = 0;
+  let bestDist = Infinity;
+  for (let i = 0; i < targets.length; i++) {
+    const dist = Math.abs(targets[i].getBoundingClientRect().top);
+    if (dist < bestDist) { bestDist = dist; best = i; }
+  }
+  return best;
+}
+function updateIndicator() {
+  const targets = getSnapTargets();
+  const idx = getCurrentSlideIndex();
+  document.getElementById('slideIndicator').textContent = `${idx + 1} / ${targets.length}`;
+  updateNavHighlight(targets[idx]);
+}
+function updateNavHighlight(target) {
+  const section = target.closest('section[id]') || (target.querySelector && target.querySelector('section[id]'));
+  const id = section ? section.id : (target.id || null);
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.classList.toggle('active', id ? a.getAttribute('href') === '#' + id : false);
+  });
+}
+function togglePresent(forceOff) {
+  const html = document.documentElement;
+  const btn = document.getElementById('presentBtn');
+  const entering = forceOff ? false : !html.classList.contains('present-mode');
+  const idx = entering ? getCurrentSlideIndex() : null;
+  html.classList.toggle('present-mode', entering);
+  btn.textContent = entering ? 'Exit' : 'Present';
+  // Notify parent wrapper (if any) so it can hide chrome
+  try { window.parent.postMessage({ type: 'presentMode', on: entering }, '*'); } catch (e) {}
+  if (entering) {
+    const target = getSnapTargets()[idx];
+    requestAnimationFrame(() => {
+      target.scrollIntoView({ behavior: 'instant' });
+      updateIndicator();
+    });
+  }
+}
+function goToSlide(direction) {
+  const targets = getSnapTargets();
+  const idx = getCurrentSlideIndex() + direction;
+  const clamped = Math.max(0, Math.min(idx, targets.length - 1));
+  targets[clamped].scrollIntoView({ behavior: 'smooth' });
+  setTimeout(updateIndicator, 350);
+}
+document.addEventListener('keydown', e => {
+  const inPresent = document.documentElement.classList.contains('present-mode');
+  if ((e.key === 'p' || e.key === 'P') && !e.target.matches('input, textarea, [contenteditable="true"]')) {
+    e.preventDefault();
+    togglePresent();
+    return;
+  }
+  if (e.key === 'Escape' && inPresent) {
+    togglePresent(true);
+    return;
+  }
+  if (!inPresent) return;
+  const next = ['ArrowDown', 'ArrowRight', 'PageDown', ' '].includes(e.key);
+  const prev = ['ArrowUp', 'ArrowLeft', 'PageUp'].includes(e.key);
+  if (next || prev) {
+    e.preventDefault();
+    goToSlide(next ? 1 : -1);
+  }
+});
+let wheelLocked = false;
+document.addEventListener('wheel', e => {
+  if (!document.documentElement.classList.contains('present-mode')) return;
+  e.preventDefault();
+  if (wheelLocked) return;
+  wheelLocked = true;
+  goToSlide(e.deltaY > 0 ? 1 : -1);
+  setTimeout(() => { wheelLocked = false; }, 700);
+}, { passive: false });
+window.addEventListener('scroll', () => {
+  if (document.documentElement.classList.contains('present-mode')) return;
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 120) current = s.id;
+  });
+  navLinks.forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+  });
+  updateIndicator();
+});
+updateIndicator();
+</script>
+</body>
+</html>
