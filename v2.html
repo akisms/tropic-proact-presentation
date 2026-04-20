@@ -65,29 +65,12 @@ nav.scrolled {
 .nav-logo {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  font-weight: 700;
-  font-size: 1.1rem;
-  color: var(--black);
-  letter-spacing: -0.02em;
+  text-decoration: none;
 }
-.nav-logo-mark {
-  width: 22px;
+.nav-logo-img {
   height: 22px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, var(--purple-mid) 0%, var(--purple) 50%, var(--purple-deep) 100%);
-  position: relative;
-}
-.nav-logo-mark::after {
-  content: '';
-  position: absolute;
-  top: 50%; left: 50%;
-  width: 10px; height: 10px;
-  background: var(--lime);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  mix-blend-mode: screen;
-  opacity: 0.8;
+  width: auto;
+  display: block;
 }
 .nav-links {
   display: flex;
@@ -1145,10 +1128,9 @@ html.present-mode .slide-indicator { opacity: 1; }
 
 <!-- Nav -->
 <nav id="nav">
-  <div class="nav-logo">
-    <div class="nav-logo-mark"></div>
-    <span>tropic</span>
-  </div>
+  <a href="#hero" class="nav-logo">
+    <img src="tropic-logo.svg" alt="tropic" class="nav-logo-img">
+  </a>
   <ul class="nav-links">
     <li><a href="#disclosure">Disclosure</a></li>
     <li><a href="#assumptions">Assumptions</a></li>
