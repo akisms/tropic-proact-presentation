@@ -732,6 +732,79 @@ section { padding: 6rem 3rem; }
 .gtm-phase.customers .gtm-tactic-name::before { background: #4CAF50; }
 .gtm-tactic-rationale { font-size: 0.88rem; color: var(--gray-600); line-height: 1.55; }
 
+/* KPI scorecard */
+.kpi-scorecard {
+  margin-top: 2rem;
+  background: var(--black);
+  border-radius: 16px;
+  padding: 1.75rem 2rem;
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+.kpi-scorecard::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--lime);
+}
+.kpi-scorecard-header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+.kpi-scorecard-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--lime);
+}
+.kpi-scorecard-sub {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.55);
+}
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+.kpi-card {
+  padding: 0 1.25rem;
+  border-left: 1px solid rgba(255,255,255,0.1);
+}
+.kpi-card:first-child { padding-left: 0; border-left: none; }
+.kpi-card:last-child { padding-right: 0; }
+.kpi-metric {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+.kpi-target {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-size: 1.5rem;
+  color: var(--lime);
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+.kpi-note {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.45;
+}
+
+html.present-mode .kpi-scorecard { padding: 1.1rem 1.4rem; margin-top: 1.25rem; }
+html.present-mode .kpi-target { font-size: 1.2rem; }
+html.present-mode .kpi-note { font-size: 0.72rem; }
+
 /* ── Enablement ── */
 .enablement { background: var(--white); }
 .enablement-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
@@ -1377,6 +1450,10 @@ html.present-mode .slide-indicator { opacity: 1; }
   footer { flex-direction: column; gap: 0.5rem; text-align: center; }
   .gtm-tactic { grid-template-columns: 1fr; gap: 0.4rem; }
   .tier-table { font-size: 0.78rem; }
+  .kpi-grid { grid-template-columns: 1fr 1fr; gap: 1.25rem 0; }
+  .kpi-card { padding: 0.75rem 1rem; border-left: none; border-top: 1px solid rgba(255,255,255,0.1); }
+  .kpi-card:first-child { padding: 0.75rem 1rem; border-top: none; }
+  .kpi-card:nth-child(2) { border-top: none; }
   .signal-grid { grid-template-columns: 1fr; }
   .signal-card { border-right: none !important; }
   .signal-card:nth-child(2) { border-top: 1px solid rgba(20,16,32,0.06) !important; }
@@ -1509,8 +1586,12 @@ html.present-mode .slide-indicator { opacity: 1; }
         <span class="assumption-number">04</span>
         <span class="assumption-text">GTM is preceded by a <strong>full customer beta</strong> with 2–3 customers who've used it during critical software purchases or renewals.</span>
       </div>
-      <div class="assumption-card" style="grid-column: 1 / -1;">
+      <div class="assumption-card">
         <span class="assumption-number">05</span>
+        <span class="assumption-text">"<strong>Mid-market</strong>" = SaaS-reliant companies with <strong>200–2,000 employees</strong>, typically managing <strong>50–500 SaaS vendors</strong>. Big enough to have a dedicated procurement function; small enough to feel the signal-to-noise problem acutely.</span>
+      </div>
+      <div class="assumption-card" style="grid-column: 1 / -1;">
+        <span class="assumption-number">06</span>
         <span class="assumption-text">This is scoped as a <strong>feature</strong>, not an agent or agentic capability. We're likely heading into a world where agents wrap around a lot of features, but that's beyond the scope here.</span>
       </div>
     </div>
@@ -1525,7 +1606,7 @@ html.present-mode .slide-indicator { opacity: 1; }
     <p class="section-subtitle fade-up">One sentence to anchor every downstream asset.</p>
     <div class="intro-box fade-up d1">
       <div class="intro-box-label">One-line summary</div>
-      <p class="intro-box-text">Tropic Proact is a <strong>procurement intelligence tool</strong> that helps procurement leaders at mid-market companies <strong>proactively identify and act on cost-saving opportunities</strong> across their software stack — powered by <strong>$18B in spend data</strong>.</p>
+      <p class="intro-box-text">Tropic Proact is a <strong>procurement intelligence tool</strong> that helps procurement leaders at mid-market companies <strong>proactively identify and act on cost-saving opportunities</strong> across their software stack — powered by the <strong>Tropic Network, $18B of proprietary software spend data</strong>.</p>
     </div>
   </div>
 </section>
@@ -1733,6 +1814,36 @@ html.present-mode .slide-indicator { opacity: 1; }
       </div>
 
     </div>
+
+    <div class="kpi-scorecard fade-up d3">
+      <div class="kpi-scorecard-header">
+        <span class="kpi-scorecard-label">Launch Scorecard</span>
+        <span class="kpi-scorecard-sub">How we'll measure success at 90 days</span>
+      </div>
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-metric">Proact-influenced pipeline</div>
+          <div class="kpi-target">[$X]M</div>
+          <div class="kpi-note">The Tier 1 revenue test — new and expansion pipeline tagged to Proact.</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-metric">Current-customer activation</div>
+          <div class="kpi-target">[X]%</div>
+          <div class="kpi-note">Share of existing customers who've turned Proact on — leading indicator for retention and expansion.</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-metric">Signal response rate</div>
+          <div class="kpi-target">[X]%</div>
+          <div class="kpi-note">Share of fired signals customers act on — the cleanest product-market fit read.</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-metric">Landing page → demo</div>
+          <div class="kpi-target">[X]%</div>
+          <div class="kpi-note">Demand capture efficiency on our most important owned surface.</div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -1821,7 +1932,7 @@ html.present-mode .slide-indicator { opacity: 1; }
         </tr>
         <tr>
           <td class="row-label alt">Alternative Anchor</td>
-          <td class="cell">Reactive, manual processes and/or generic off-the-shelf AI</td>
+          <td class="cell">Reactive manual processes · Human-mediated buying services (<strong>Vendr</strong>, <strong>Sastrify</strong>) — slower cycle time · SaaS management tools (<strong>Zylo</strong>, <strong>Productiv</strong>) — surface usage, not savings action · Generic off-the-shelf AI without a proprietary spend corpus</td>
         </tr>
         <tr>
           <td class="row-label cat">Category Anchor</td>
