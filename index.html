@@ -283,7 +283,7 @@ html, body { height: 100%; font-family: 'Inter', -apple-system, BlinkMacSystemFo
 
   <!-- Main content -->
   <main class="main">
-    <iframe id="mainFrame" class="main-iframe" src="v8.html" title="Tropic Proact Presentation"></iframe>
+    <iframe id="mainFrame" class="main-iframe" src="v9.html" title="Tropic Proact Presentation"></iframe>
   </main>
 
   <button class="show-sidebar-btn" id="showSidebarBtn" title="Show sidebar">☰</button>
@@ -292,8 +292,14 @@ html, body { height: 100%; font-family: 'Inter', -apple-system, BlinkMacSystemFo
 <script>
 const VERSIONS = [
   {
+    id: 'v9',
+    name: 'v9 — Current',
+    meta: 'Apr 17 · Conclusion slide + Thank You reordered',
+    file: 'v9.html'
+  },
+  {
     id: 'v8',
-    name: 'v8 — Current',
+    name: 'v8',
     meta: 'Apr 17 · Moat front-loaded in subhead',
     file: 'v8.html'
   },
@@ -347,7 +353,7 @@ const frame = document.getElementById('mainFrame');
 const collapseBtn = document.getElementById('collapseBtn');
 const showBtn = document.getElementById('showSidebarBtn');
 
-let activeId = 'v8';
+let activeId = 'v9';
 
 function render() {
   list.innerHTML = '';
