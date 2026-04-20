@@ -933,14 +933,16 @@ section { padding: 6rem 3rem; }
   padding: 0.6rem 0.8rem;
 }
 
-/* 3-column cell: clean CSS grid with clear dividers and top-aligned text */
+/* 3-column cell: clean CSS grid with clear dividers and top-aligned text.
+   align-items: stretch makes each .col fill the full row height, so the
+   vertical divider runs edge-to-edge regardless of which column has more text. */
 .canvas-table .cell-3col {
   background: var(--white);
   padding: 0;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 0;
-  align-items: start;
+  align-items: stretch;
 }
 .canvas-table .cell-3col > .col {
   padding: 0.55rem 0.85rem;
