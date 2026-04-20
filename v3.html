@@ -935,32 +935,23 @@ section { padding: 6rem 3rem; }
 
 /* 3-column cell: clean CSS grid with clear dividers and top-aligned text */
 .canvas-table .cell-3col {
-  background: transparent;
+  background: var(--white);
   padding: 0;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 0;
   align-items: start;
-  border-radius: 4px;
-  overflow: hidden;
 }
 .canvas-table .cell-3col > .col {
-  padding: 0.55rem 0.8rem;
+  padding: 0.55rem 0.85rem;
   font-size: 0.7rem;
   line-height: 1.4;
   color: var(--gray-800);
-  border-left: 1px solid rgba(20,16,32,0.22);
+  border-left: 2px solid rgba(20,16,32,0.22);
   vertical-align: top;
 }
 .canvas-table .cell-3col > .col:first-child { border-left: none; }
 .canvas-table .cell-3col > .col strong { color: var(--black); font-weight: 600; }
-
-/* Column lanes — each of the three columns gets a consistent faint tint
-   across every 3-col row, so you can follow one ladder (problem → benefit)
-   vertically down the canvas. */
-.canvas-table .cell-3col > .col:nth-child(1) { background: #FDF6F0; }
-.canvas-table .cell-3col > .col:nth-child(2) { background: #F5F1FC; }
-.canvas-table .cell-3col > .col:nth-child(3) { background: #EDF6F1; }
 
 /* Lists inside cells */
 .canvas-table ul { list-style: none; padding-left: 0; margin: 0; }
