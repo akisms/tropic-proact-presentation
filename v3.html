@@ -935,23 +935,32 @@ section { padding: 6rem 3rem; }
 
 /* 3-column cell: clean CSS grid with clear dividers and top-aligned text */
 .canvas-table .cell-3col {
-  background: var(--white);
+  background: transparent;
   padding: 0;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 0;
   align-items: start;
+  border-radius: 4px;
+  overflow: hidden;
 }
 .canvas-table .cell-3col > .col {
   padding: 0.55rem 0.8rem;
   font-size: 0.7rem;
   line-height: 1.4;
   color: var(--gray-800);
-  border-left: 1px solid rgba(20,16,32,0.18);
+  border-left: 1px solid rgba(20,16,32,0.22);
   vertical-align: top;
 }
 .canvas-table .cell-3col > .col:first-child { border-left: none; }
 .canvas-table .cell-3col > .col strong { color: var(--black); font-weight: 600; }
+
+/* Column lanes — each of the three columns gets a consistent faint tint
+   across every 3-col row, so you can follow one ladder (problem → benefit)
+   vertically down the canvas. */
+.canvas-table .cell-3col > .col:nth-child(1) { background: #FDF6F0; }
+.canvas-table .cell-3col > .col:nth-child(2) { background: #F5F1FC; }
+.canvas-table .cell-3col > .col:nth-child(3) { background: #EDF6F1; }
 
 /* Lists inside cells */
 .canvas-table ul { list-style: none; padding-left: 0; margin: 0; }
@@ -1611,7 +1620,7 @@ html.present-mode .slide-indicator { opacity: 1; }
   <div class="container">
     <div class="section-label fade-up">Appendix · A1</div>
     <h2 class="section-title fade-up">Full positioning &amp; <em>messaging canvas</em></h2>
-    <p class="section-subtitle fade-up">The complete FletchPMM canvas — source-of-truth for every downstream asset.</p>
+    <p class="section-subtitle fade-up">The complete canvas — source-of-truth for every downstream asset.</p>
 
     <div class="canvas-wrap fade-up d1">
       <div class="canvas-intro">
