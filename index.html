@@ -296,7 +296,7 @@ html, body { height: 100%; font-family: 'Inter', -apple-system, BlinkMacSystemFo
 
   <!-- Main content -->
   <main class="main">
-    <iframe id="mainFrame" class="main-iframe" src="v2.html" title="Tropic Proact Presentation"></iframe>
+    <iframe id="mainFrame" class="main-iframe" src="v3.html" title="Tropic Proact Presentation"></iframe>
   </main>
 
   <button class="show-sidebar-btn" id="showSidebarBtn" title="Show sidebar">☰</button>
@@ -305,8 +305,14 @@ html, body { height: 100%; font-family: 'Inter', -apple-system, BlinkMacSystemFo
 <script>
 const VERSIONS = [
   {
+    id: 'v3',
+    name: 'v3 — Current',
+    meta: 'Apr 17 · Canvas + pillars polish',
+    file: 'v3.html'
+  },
+  {
     id: 'v2',
-    name: 'v2 — Current',
+    name: 'v2',
     meta: 'Apr 17 · Feedback incorporated',
     file: 'v2.html'
   },
@@ -324,7 +330,7 @@ const frame = document.getElementById('mainFrame');
 const collapseBtn = document.getElementById('collapseBtn');
 const showBtn = document.getElementById('showSidebarBtn');
 
-let activeId = 'v2';
+let activeId = 'v3';
 
 function render() {
   list.innerHTML = '';
