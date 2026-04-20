@@ -826,6 +826,22 @@ section { padding: 6rem 3rem; }
 }
 .enablement-contingency em { font-style: normal; color: rgba(255,255,255,0.9); font-weight: 500; }
 
+.enablement-footnote {
+  margin-top: auto;
+  padding-top: 0.9rem;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.5;
+}
+.enablement-footnote strong {
+  color: rgba(227,242,125,0.9);
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
 .bonus-card {
   background: linear-gradient(135deg, var(--lime) 0%, var(--lime-dark) 100%);
   padding: 1.5rem 2rem;
@@ -1755,14 +1771,9 @@ html.present-mode .slide-indicator { opacity: 1; }
             <div class="enablement-asset">Interactive Product Demo</div>
           </div>
         </div>
-        <p class="enablement-body">A <strong>click-through demo</strong> (Arcade, Navattic, or Storylane) that shows Proact in action on a representative dataset. Embedded on the landing page, used by reps in discovery, and linked from outbound.</p>
-        <div class="enablement-why">
-          <strong>Why this one</strong>
-          Prospects don't have data in Tropic yet. They need to <em>see the "aha" fast</em> — an interactive demo delivers the narrative and the product moment without scheduling a call.
-        </div>
-        <div class="enablement-contingency">
-          <strong>Contingency · If no interactive demo tool</strong>
-          A short pitch deck + 2-min pre-recorded Loom walkthrough. Weaker because it loses the self-serve "play with it" element — but consistent, and a rep can still walk someone through it live.
+        <p class="enablement-body">A <strong>click-through demo</strong> (Arcade, Navattic, Storylane) showing Proact on a representative dataset — embedded on the landing page, used in discovery, linked from outbound. Prospects don't have data in Tropic yet, so they need the <em>aha</em> fast; self-serve beats scheduling a call.</p>
+        <div class="enablement-footnote">
+          <strong>Fallback</strong> · Pitch deck + 2-min Loom walkthrough if no interactive demo tool. Weaker (no "play with it" moment), but consistent.
         </div>
       </div>
 
@@ -1774,14 +1785,9 @@ html.present-mode .slide-indicator { opacity: 1; }
             <div class="enablement-asset">Signal Response Guide</div>
           </div>
         </div>
-        <p class="enablement-body">A <strong>reference doc organized by signal type</strong>. For each signal Proact fires — renewal alerts, consolidation flags, pricing shifts, new alternatives — the guide explains what it means, Proact's recommended action, and how to execute. <a href="#signal-guide" style="color:var(--lime); text-decoration:underline; text-underline-offset:2px;">See the asset →</a></p>
-        <div class="enablement-why">
-          <strong>Why this one</strong>
-          Proact's whole positioning is <em>proactive</em> — signals come to customers automatically. The right asset teaches customers a <em>decision framework</em> for each type of signal, so the education reinforces the product's rhythm instead of fighting it.
-        </div>
-        <div class="enablement-contingency">
-          <strong>Contingency · If full guide isn't ready</strong>
-          A one-pager per signal type — same structure, shipped incrementally as each signal type goes live in product.
+        <p class="enablement-body">A <strong>reference doc organized by signal type</strong>. For each Proact signal — renewal alerts, consolidation flags, pricing shifts, alternatives — the guide explains what it means, Proact's recommendation, and how to execute. Teaches a <em>decision framework</em> per signal, reinforcing Proact's proactive rhythm. <a href="#signal-guide" style="color:var(--lime); text-decoration:underline; text-underline-offset:2px;">See the asset →</a></p>
+        <div class="enablement-footnote">
+          <strong>Fallback</strong> · One-pager per signal type, shipped incrementally as each goes live.
         </div>
       </div>
 
